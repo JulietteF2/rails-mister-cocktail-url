@@ -5,9 +5,10 @@
     <hr>
     <%= simple_form_for [@cocktail] do |f| %>
       <%= f.input :name, placeholder: 'Mojito, frozen margarita...' %>
-      <%= f.input :image_url %>
+      <%= f.input :image_url, label: "<a href='https://unsplash.com/s/photos/cocktails' target='blank'>Illustrate your cocktail with an image url, click for inspiration</a>".html_safe  %>
       <br>
       <%= f.submit class: 'btn btn-outline-info light-btn' %>
     <% end %>
   </div>
 </div>
+
