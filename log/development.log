@@ -1053,3 +1053,71 @@ Processing by CocktailsController#index as HTML
 Completed 200 OK in 58ms (Views: 53.6ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for ::1 at 2020-02-22 23:39:12 +1100
+Processing by CocktailsController#index as HTML
+  Rendering cocktails/index.html.erb within layouts/application
+  [1m[36mCocktail Load (0.7ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails"[0m
+  ↳ app/views/cocktails/index.html.erb:10
+  Rendered cocktails/index.html.erb within layouts/application (3.4ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-23 23:00:34 +1100
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/JulietteFerrer0/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by CocktailsController#index as HTML
+  Rendering cocktails/index.html.erb within layouts/application
+  [1m[36mCocktail Load (1.6ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails"[0m
+  ↳ app/views/cocktails/index.html.erb:10
+  Rendered cocktails/index.html.erb within layouts/application (18.9ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2047ms (Views: 2018.7ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/cocktails/12" for ::1 at 2020-02-23 23:00:41 +1100
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCocktail Load (0.5ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/cocktails_controller.rb:7
+  Rendering cocktails/show.html.erb within layouts/application
+  [1m[36mDose Load (41.4ms)[0m  [1m[34mSELECT "doses".* FROM "doses" WHERE "doses"."cocktail_id" = $1[0m  [["cocktail_id", 12]]
+  ↳ app/views/cocktails/show.html.erb:8
+  [1m[36mIngredient Load (1.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/views/cocktails/show.html.erb:9
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/cocktails/show.html.erb:9
+  Rendered cocktails/show.html.erb within layouts/application (85.4ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 332ms (Views: 98.6ms | ActiveRecord: 53.3ms)
+
+
+Started GET "/cocktails/12/doses/new" for ::1 at 2020-02-23 23:00:45 +1100
+Processing by DosesController#new as HTML
+  Parameters: {"cocktail_id"=>"12"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/doses_controller.rb:4
+  Rendering doses/new.html.erb within layouts/application
+  Rendered doses/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/JulietteFerrer0/code/JulietteF2/rails-mister-cocktail-url/app/views/doses/new.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+..., label: 'Quantity' placeholder: '10cl, two drops...' );@out...
+...                    ^~~~~~~~~~~):
+  
+app/views/doses/new.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/cocktails/12/doses/new" for ::1 at 2020-02-23 23:00:56 +1100
+Processing by DosesController#new as HTML
+  Parameters: {"cocktail_id"=>"12"}
+  [1m[36mCocktail Load (1.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/doses_controller.rb:4
+  Rendering doses/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/doses/new.html.erb:8
+  Rendered doses/new.html.erb within layouts/application (1552.4ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1717ms (Views: 1710.2ms | ActiveRecord: 1.4ms)
+
+
